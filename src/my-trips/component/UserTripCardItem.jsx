@@ -14,7 +14,7 @@ function UserTripCardItem({trip}) {
         }
 
         const location = trip.userSelection.location.formattedAddress || 'travel';
-        const API_KEY = '46101265-d8204c525f82e255e7960ecb4';
+        const API_KEY = '';
         const response = await fetch(
           `https://pixabay.com/api/?key=${API_KEY}&q=${encodeURIComponent(location)}&image_type=photo&per_page=5`
         );
