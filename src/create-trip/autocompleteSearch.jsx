@@ -10,7 +10,7 @@ const AutocompleteSearch = ({onLocationSelect}) => {
 
   useEffect(() => {
     if (searchInput.length > 2) {
-      const apiKey = '2a993ba7ec9941d69d8cb930e7f79797'; // Thay thế bằng Geoapify API Key của bạn
+      const apiKey = ''; // Thay thế bằng Geoapify API Key của bạn
       fetch(`https://api.geoapify.com/v1/geocode/autocomplete?text=${searchInput}&apiKey=${apiKey}`)
         .then(response => response.json())
         .then(data => {
