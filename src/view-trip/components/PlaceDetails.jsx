@@ -23,8 +23,8 @@ const PlaceDetails = () => {
         try {
             setLoading(true);
 
-            const apiKey = 'AIzaSyDJMoqrsEAX9OW7UNy8JAK_rnqAdaYpFvE'; // API Key của bạn
-            const cx = 'e63d20485aae44352'; // Search Engine ID (CX)
+            const apiKey = ''; // API Key 
+            const cx = ''; // Search Engine ID (CX)
             //const sanitizeQuery = sanitizePlaceName(id);
             const query = sanitizePlaceName(id);
             console.log('Yêu cầu tới API:', `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${query}`);
