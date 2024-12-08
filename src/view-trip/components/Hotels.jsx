@@ -10,7 +10,7 @@ function Hotels({trip}) {
     const fetchImage = async () => {
       try {
         if (!trip?.userSelection?.hotelName) {
-          setImageUrl('https://via.placeholder.com/220x220?text=No+Image');
+          setImageUrl('/hotel.webp');
           return;
         }
 

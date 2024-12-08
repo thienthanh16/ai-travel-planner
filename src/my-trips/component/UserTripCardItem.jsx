@@ -29,7 +29,7 @@ function UserTripCardItem({trip}) {
         if (data?.hits?.length > 0) {
           setImageUrl(data.hits[0].webformatURL);
         } else {
-          setImageUrl('https://via.placeholder.com/220x220?text=No+Image');
+          setImageUrl('/placeholder.avif');
         }
       } catch (error) {
         console.error('Error fetching image:', error);

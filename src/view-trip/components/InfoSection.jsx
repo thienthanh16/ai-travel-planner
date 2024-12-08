@@ -11,7 +11,7 @@ function InfoSection({trip}) {
     const fetchImage = async () => {
       try {
         if (!trip?.userSelection?.location?.formattedAddress) {
-          setImageUrl('https://via.placeholder.com/220x220?text=No+Image');
+          setImageUrl('/placeholder.avif');
           return;
         }
 
@@ -31,7 +31,7 @@ function InfoSection({trip}) {
         if (data?.hits?.length > 0) {
           setImageUrl(data.hits[0].webformatURL);
         } else {
-          setImageUrl('https://via.placeholder.com/220x220?text=No+Image');
+          setImageUrl('/placeholder.avif');
         }
       } catch (error) {
         console.error('Error fetching image:', error);

@@ -2,10 +2,13 @@ import { Button } from '@/components/ui/button'
 import React, { useState, useEffect } from 'react'
 import { IoLocation } from "react-icons/io5";
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 function PlaceCardItem({place}) {
   const [imageUrl, setImageUrl] = useState('');
+  
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchImage = async () => {
@@ -42,19 +45,26 @@ function PlaceCardItem({place}) {
     fetchImage();
   }, [place]);
 
+  // Hàm xử lý sự kiện onClick
+  const handleCardClick = () => {
+    navigate(`/place-details/${encodeURIComponent(place.placeName)}`); 
+  };
+
   return (
-    <Link to={'https://www.google.com/maps/search/?api=1&query=' + place?.placeName + "," + place?.geoCoordinates} target='_blank'>
-        <div className='border  rounded-xl p-3 mt-3 flex gap-5 hover:scale-105 transition-all hover:shadow-md cursor-pointer'>
-        <img src={imageUrl} className='h-[150px] w-[150px] rounded-xl' />
+    //<Link to={'https://www.google.com/maps/search/?api=1&query=' + place?.placeName + "," + place?.geoCoordinates} target='_blank'>
+        <div className='border  rounded-xl p-3 mt-3 flex gap-5 ' >
+        <img src={imageUrl} className='h-[150px] w-[150px] rounded-xl hover:scale-105 transition-all hover:shadow-md cursor-pointer' onClick={handleCardClick}/>
 
         <div>
             <h2 className='font-bold text-lg'>{place.placeName}</h2>
             <p className='text-sm text-gray-500'>{place.placeDetails}</p>
             <h2 className='mt-2'>🎫Ticket: {place.ticketPricing}</h2>
-            <Button size='sm' className='mt-2'><IoLocation /></Button>
+            <Link to={'https://www.google.com/maps/search/?api=1&query=' + place?.placeName + "," + place?.geoCoordinates} target='_blank'>
+              <Button size='sm' className='mt-2'><IoLocation /></Button>
+            </Link>
         </div>
         </div>
-    </Link>
+    //</Link>
   )
 }
 
